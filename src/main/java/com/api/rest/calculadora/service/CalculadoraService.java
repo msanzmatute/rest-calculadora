@@ -4,9 +4,13 @@
 package com.api.rest.calculadora.service;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.api.rest.calculadora.enumeration.OperacionEnum;
+import com.api.rest.calculadora.factory.OperacionFactory;
 import com.api.rest.calculadora.model.Operacion;
 
 /**
@@ -17,7 +21,9 @@ import com.api.rest.calculadora.model.Operacion;
 @Service
 public class CalculadoraService {
 
-	
+	/** Factoria de operaciones*/
+	@Autowired
+	private OperacionFactory factory;
 
 	/**
 	 * Método que realiza una operación entre 2 números
@@ -28,7 +34,14 @@ public class CalculadoraService {
 	 */
 	public BigDecimal calcula(final Operacion operacion) {
 
-		throw new UnsupportedOperationException("Operacíon no implementada");
+		final String tipoOperacion = operacion.getTipoOperacion();
+		
+		final BigDecimal operador1 = Optional.ofNullable(operacion.getOperador1()).orElseThrow(() -> new IllegalArgumentException("El operador 1 no es válido."));
+		final BigDecimal operador2 = Optional.ofNullable(operacion.getOperador2()).orElseThrow(() -> new IllegalArgumentException("El operador 2 no es válido."));
+		
+		final OperacionEnum correctOp = OperacionEnum.fromValue(tipoOperacion);
+
+		return factory.getOperation(correctOp).apply(operador1, operador2);
 	}
 
 	
