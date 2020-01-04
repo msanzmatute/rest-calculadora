@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * Modelo de entrada microservicio calculadora 
@@ -11,6 +15,10 @@ import io.swagger.annotations.ApiModelProperty;
  *
  */
 @ApiModel(description = "Modelo de la Operación Aritmética.")
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Operacion {
 	
 	/** Operador 1 de la operación*/	
