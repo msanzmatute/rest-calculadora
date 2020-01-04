@@ -13,6 +13,8 @@ import com.api.rest.calculadora.enumeration.OperacionEnum;
 import com.api.rest.calculadora.factory.OperacionFactory;
 import com.api.rest.calculadora.model.Operacion;
 
+import io.corp.calculator.TracerImpl;
+
 /**
  * Servicio que permite realizar operaciones aritméticas entre dos números
  * 
@@ -24,6 +26,10 @@ public class CalculadoraService {
 	/** Factoria de operaciones*/
 	@Autowired
 	private OperacionFactory factory;
+	
+	/** Api tracer */
+	@Autowired
+	private TracerImpl tracer;
 
 	/**
 	 * Método que realiza una operación entre 2 números
@@ -40,8 +46,10 @@ public class CalculadoraService {
 		final BigDecimal operador2 = Optional.ofNullable(operacion.getOperador2()).orElseThrow(() -> new IllegalArgumentException("El operador 2 no es válido."));
 		
 		final OperacionEnum correctOp = OperacionEnum.fromValue(tipoOperacion);
-
-		return factory.getOperation(correctOp).apply(operador1, operador2);
+		
+		final BigDecimal resultado =  factory.getOperation(correctOp).apply(operador1, operador2);
+		tracer.trace(resultado);
+		return resultado;
 	}
 
 	

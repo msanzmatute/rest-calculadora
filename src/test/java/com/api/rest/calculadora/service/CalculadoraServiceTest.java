@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Captor;
@@ -21,10 +22,13 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.api.rest.calculadora.enumeration.OperacionEnum;
 import com.api.rest.calculadora.factory.OperacionFactory;
 import com.api.rest.calculadora.model.Operacion;
+
+import io.corp.calculator.TracerImpl;
 
 /**
  * Junit de la clase {@link CalculadoraService}
@@ -32,6 +36,7 @@ import com.api.rest.calculadora.model.Operacion;
  * @author msanz
  *
  */
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 class CalculadoraServiceTest {
 
@@ -42,6 +47,10 @@ class CalculadoraServiceTest {
 	/** Mock Factoria de operaciones */
 	@Mock
 	private OperacionFactory factory;
+	
+	/** Mock Tracer */
+	@Mock
+	private TracerImpl tracer;
 
 	/** Agument captor para el metodo OperacionFactory.getOperation */
 	@Captor
@@ -60,7 +69,7 @@ class CalculadoraServiceTest {
 	 */
 	@AfterEach
 	void tearDown() throws Exception {
-		Mockito.reset(factory);
+		Mockito.reset(factory,tracer);
 	}
 
 	/**

@@ -46,6 +46,13 @@
 			<optional>true</optional>
 		</dependency>
 		
+		<!-- APIs externas -->
+		<dependency>
+			<groupId>io.corp.calculator</groupId>
+			<artifactId>tracer</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		
 		<!-- Swagger Dependencies -->
 		<dependency>
 			<groupId>io.swagger</groupId>
