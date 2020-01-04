@@ -30,7 +30,7 @@ _Tener instalado en el repositorio maven tracer-1.0.0.jar_
 Ejecutar el comando maven :
 
 ```
-mvn %MAVEN_CMD_LINE_ARGS% install:install-file -Dfile=libs/tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=tracer -Dversion=1.0.0 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=libs/tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=tracer -Dversion=1.0.0 -Dpackaging=jar -DgeneratePom=true
 ```
 
 ### Instalación 🔧
