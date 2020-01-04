@@ -21,7 +21,9 @@ tipoOperacion puede ser : +,-,x,..
 
 ### Pre-requisitos 📋
 
-_Si el proyecto se va a abrir desde algún IDE hay que instalar [lombok]https://projectlombok.org/setup/overview) _
+_Si el proyecto se va a abrir desde algún IDE_
+* Instalar [lombok](https://projectlombok.org/setup/overview)
+* Añadir la librería libs/hamcrest-all-1.3.jar al classpath
 
 _Tener instalado en el repositorio maven tracer-1.0.0.jar_
 
@@ -77,7 +79,8 @@ Ejemplo de json
 
 * SoapUI
 
-![Postman](https://github.com/msanzmatute/images/blob/master/postman.png)
+![SoapUI](https://github.com/msanzmatute/images/blob/master/soapui.png)
+
 
 _Swagger_
 
