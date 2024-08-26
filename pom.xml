@@ -24,7 +24,7 @@
 		
 		<!-- Swagger -->
 		<swagger.version>1.5.9</swagger.version>
-		<springfox.version>2.5.0</springfox.version>
+		<springfox.version>2.10.0</springfox.version>
 		
 		<!-- jacoco-maven-plugin -->
 		<jacoco.maven.plugin.version>0.8.5</jacoco.maven.plugin.version>
